@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{91C66241-A6EA-4A4C-A36C-B694459EB36C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="APIManager\RESTAPIManager.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Samples\Object Pascal\Database\RESTDemo\RESTDemos.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Client\RESTClient.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AIGenerated\AIGenerated.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\GitHub\CPRSv33conPkg\VA\Packages\12\VAShared_R12.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\GitHub\CPRSv33con\CPRS-chart\CPRSChart.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VarTesting\VarTesting.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RESTAPIManager">
+        <MSBuild Projects="APIManager\RESTAPIManager.dproj"/>
+    </Target>
+    <Target Name="RESTAPIManager:Clean">
+        <MSBuild Projects="APIManager\RESTAPIManager.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTAPIManager:Make">
+        <MSBuild Projects="APIManager\RESTAPIManager.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RESTDemos">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Samples\Object Pascal\Database\RESTDemo\RESTDemos.dproj"/>
+    </Target>
+    <Target Name="RESTDemos:Clean">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Samples\Object Pascal\Database\RESTDemo\RESTDemos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTDemos:Make">
+        <MSBuild Projects="C:\Users\Public\Documents\Embarcadero\Studio\23.0\Samples\Object Pascal\Database\RESTDemo\RESTDemos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RESTClient">
+        <MSBuild Projects="Client\RESTClient.dproj"/>
+    </Target>
+    <Target Name="RESTClient:Clean">
+        <MSBuild Projects="Client\RESTClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RESTClient:Make">
+        <MSBuild Projects="Client\RESTClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AIGenerated">
+        <MSBuild Projects="AIGenerated\AIGenerated.dproj"/>
+    </Target>
+    <Target Name="AIGenerated:Clean">
+        <MSBuild Projects="AIGenerated\AIGenerated.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AIGenerated:Make">
+        <MSBuild Projects="AIGenerated\AIGenerated.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VAShared_R12">
+        <MSBuild Projects="..\..\GitHub\CPRSv33conPkg\VA\Packages\12\VAShared_R12.dproj"/>
+    </Target>
+    <Target Name="VAShared_R12:Clean">
+        <MSBuild Projects="..\..\GitHub\CPRSv33conPkg\VA\Packages\12\VAShared_R12.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VAShared_R12:Make">
+        <MSBuild Projects="..\..\GitHub\CPRSv33conPkg\VA\Packages\12\VAShared_R12.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPRSChart">
+        <MSBuild Projects="..\..\GitHub\CPRSv33con\CPRS-chart\CPRSChart.dproj"/>
+    </Target>
+    <Target Name="CPRSChart:Clean">
+        <MSBuild Projects="..\..\GitHub\CPRSv33con\CPRS-chart\CPRSChart.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPRSChart:Make">
+        <MSBuild Projects="..\..\GitHub\CPRSv33con\CPRS-chart\CPRSChart.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VarTesting">
+        <MSBuild Projects="VarTesting\VarTesting.dproj"/>
+    </Target>
+    <Target Name="VarTesting:Clean">
+        <MSBuild Projects="VarTesting\VarTesting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VarTesting:Make">
+        <MSBuild Projects="VarTesting\VarTesting.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RESTAPIManager;RESTDemos;RESTClient;AIGenerated;VAShared_R12;CPRSChart;VarTesting"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RESTAPIManager:Clean;RESTDemos:Clean;RESTClient:Clean;AIGenerated:Clean;VAShared_R12:Clean;CPRSChart:Clean;VarTesting:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RESTAPIManager:Make;RESTDemos:Make;RESTClient:Make;AIGenerated:Make;VAShared_R12:Make;CPRSChart:Make;VarTesting:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

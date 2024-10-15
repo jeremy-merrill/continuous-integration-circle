@@ -1,0 +1,117 @@
+{
+    "name": "Facebook",
+    "description": "FaceBook testing",
+    "steps": [
+        {
+            "name": "Login",
+            "method": "GET",
+            "type": "normal",
+            "url": "https://www.facebook.com/v20.0/dialog/oauth",
+            "preConditions": [
+                {
+                    "type": "IsNull",
+                    "key": "response_type",
+                    "value": "code",
+                    "trueStep": "",
+                    "falseStep": "",
+                    "scriptName": "",
+                    "scriptArguments": [
+                        {
+                            "argument": "testing"
+                        }
+                    ],
+                    "script": ""
+                }
+            ],
+            "headers": [
+                {
+                    "key": "response_type",
+                    "value": "code"
+                },
+                {
+                    "key": "client_id",
+                    "value": "1735400023939338"
+                },
+                {
+                    "key": "redirect_uri",
+                    "value": "https://www.facebook.com/connect/login_success.html"
+                },
+                {
+                    "key": "state",
+                    "value": "{{random_state}}"
+                },
+                {
+                    "key": "scope",
+                    "value": "public_profile"
+                }
+            ],
+            "parameters": [
+                {
+                    "key": "response_type",
+                    "value": "code"
+                },
+                {
+                    "key": "client_id",
+                    "value": "1735400023939338"
+                },
+                {
+                    "key": "redirect_uri",
+                    "value": "https://www.facebook.com/connect/login_success.html"
+                },
+                {
+                    "key": "state",
+                    "value": "{{random_state}}"
+                },
+                {
+                    "key": "scope",
+                    "value": "public_profile"
+                }
+            ],
+            "body": [
+                {
+                    "key": "response_type",
+                    "value": "code"
+                },
+                {
+                    "key": "client_id",
+                    "value": "1735400023939338"
+                },
+                {
+                    "key": "redirect_uri",
+                    "value": "https://www.facebook.com/connect/login_success.html"
+                },
+                {
+                    "key": "state",
+                    "value": "{{random_state}}"
+                },
+                {
+                    "key": "scope",
+                    "value": "public_profile"
+                }
+            ],
+            "responseMapping": [
+                {
+                    "key": "response_type",
+                    "value": "code"
+                },
+                {
+                    "key": "client_id",
+                    "value": "1735400023939338"
+                },
+                {
+                    "key": "redirect_uri",
+                    "value": "https://www.facebook.com/connect/login_success.html"
+                },
+                {
+                    "key": "state",
+                    "value": "{{random_state}}"
+                },
+                {
+                    "key": "scope",
+                    "value": "public_profile"
+                }
+            ],
+            "postConditions": []
+        }
+    ]
+}

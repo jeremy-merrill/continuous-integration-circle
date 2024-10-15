@@ -1,0 +1,148 @@
+[
+    {
+        "Name": "Facebook",
+        "Description": "Facebook REST API\r\nTesting",
+        "Steps": [
+            {
+                "StepName": "ExchangeCodeForToken",
+                "Method": "POST",
+                "StepType": "Utility",
+                "URL": "https://provider.com/oauth2/token",
+                "PreConditions": [
+                   {
+                     "ConditionType": "IsNull",
+                     "Key": "bug",
+                     "Value": "",
+                     "IfTrueStep": "Other",
+                     "IfFalseStep": "",
+                     "ScriptFunctionName": "SomeFunction",
+                     "ScriptArguments": [
+                       "this","is"
+                     ],
+                     "Script": "SomeFunction(a,b) {return a+' '+b;};"
+                   }
+                ]
+                "Headers": {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "Parameters": {
+
+                },
+                "Body": {
+                    "grant_type": "authorization_code",
+                    "code": "authorization-code-received",
+                    "redirect_uri": "https://yourapp.com/oauth2/callback",
+                    "client_id": "your-client-id",
+                    "client_secret": "your-client-secret"
+                },
+                "ResponseMapping": {
+                    "access_token": "AccessToken",
+                    "refresh_token": "RefreshToken",
+                    "expires_in": "ExpiresIn"
+                },
+                "PostConditions": [
+                    {
+                        "ConditionType": "StoreValue",
+                        "Key": "TokenExpiryTime",
+                        "Value": "{CurrentTimePlusExpiresIn}"
+                    }
+
+                ]
+            },
+            {
+                "StepName": "UseAccessToken",
+                "Method": "GET",
+                "URL": "https://api.provider.com/userinfo",
+                "Headers": {
+                    "Authorization": "Bearer {AccessToken}"
+                },
+                "PreConditions": [
+                    {
+                        "ConditionType": "ExecuteJavaScript",
+                        "Script": "function checkTokenExpiry(currentTime, expiryTime) { return new Date(currentTime) < new Date(expiryTime); }",
+                        "FunctionName": "checkTokenExpiry",
+                        "Arguments": [
+                            "{CurrentTime}",
+                            "{TokenExpiryTime}"
+                        ],
+                        "IfTrueStep": "RefreshAccessToken"
+                    }
+                ]
+            },
+            {
+                "StepName": "RefreshAccessToken",
+                "Method": "POST",
+                "URL": "https://provider.com/oauth2/token",
+                "Headers": {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "Body": {
+                    "grant_type": "refresh_token",
+                    "refresh_token": "{RefreshToken}",
+                    "client_id": "your-client-id",
+                    "client_secret": "your-client-secret"
+                },
+                "ResponseMapping": {
+                    "access_token": "AccessToken",
+                    "expires_in": "ExpiresIn"
+                },
+                "PostConditions": [
+                    {
+                        "ConditionType": "StoreValue",
+                        "Key": "TokenExpiryTime",
+                        "Value": "{CurrentTimePlusExpiresIn}"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Name": "Facebook",
+        "Steps": [
+            {
+                "Name": "Request Authorization Code",
+                "Method": "GET",
+                "URL": "https://www.facebook.com/dialog/oauth",
+                "Headers": {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "Params": {
+                    "response_type": "code",
+                    "client_id": "your-client-id",
+                    "redirect_uri": "https://yourapp.com/oauth2/callback",
+                    "scope": "read write",
+                    "state": "random-state-value"
+                },
+                "ResponseMapping": {
+                    "code": "AuthorizationCode"
+                }
+            },
+            {
+                "Name": "ExchangeCodeForToken",
+                "Method": "POST",
+                "URL": "https://provider.com/oauth2/token",
+                "Headers": {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "Body": {
+                    "grant_type": "authorization_code",
+                    "code": "{AuthorizationCode}",
+                    "redirect_uri": "https://yourapp.com/oauth2/callback",
+                    "client_id": "your-client-id",
+                    "client_secret": "your-client-secret"
+                },
+                "ResponseMapping": {
+                    "access_token": "AccessToken"
+                }
+            },
+            {
+                "Name": "UseAccessToken",
+                "Method": "GET",
+                "URL": "https://api.provider.com/userinfo",
+                "Headers": {
+                    "Authorization": "Bearer {AccessToken}"
+                }
+            }
+        ]
+    }
+]

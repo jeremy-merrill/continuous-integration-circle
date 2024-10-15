@@ -1,0 +1,29 @@
+{
+    "risk": 0.0658663807570778,
+    "deaths_no_screening": 44.894457577946184,
+    "deaths_screening": 35.735988232045166,
+    "lives_saved": 9.158469345901018,
+    "days_gained": 13.524286420506423,
+    "number_needed_to_screen": 109.0,
+    "life_expectancy_without_screening": 2.3734876712397526,
+    "number_diagnosed": 65.8663807570778,
+    "lcrisks_result_5years": {
+        "Counterfactual: Years of life gained if lung cancer is found early due to screening": 0.43480809250772967,
+        "False-positive CT lung screens per 1000": 424.0747359019434,
+        "Screening increase lung cancer diagnosis per 1000": 8.167431213877654,
+        "Counterfactual: Life-expectancy with 3 rounds of CT lung screens": 1.6076804725008769,
+        "Years of life gained if lung cancer is found early due to screening": 0.500142802808937,
+        "Number of lung cancer deaths per 1000 (LCDRAT)": 44.894457577946184,
+        "Number of years predictions are for": 5,
+        "Number with lung cancer diagnosed per 1000 (LCRAT)": 65.8663807570778,
+        "Counterfactual: Life-expectancy without CT lung screens": 1.5756361784556294,
+        "Days of life gained from undergoing 3 rounds of CT lung screens": 13.524286420506423,
+        "Screening reduced lung cancer deaths per 1000": 9.158469345901018,
+        "Life-expectancy with 3 rounds of CT lung screens": 2.410515149461536,
+        "Years of life gained if lung cancer death is averted due to screening": 4.042976705311088,
+        "Counterfactual: Years of life gained if lung cancer death is averted due to screening": 3.5211467993666674,
+        "Counterfactual: Days of life gained from undergoing 3 rounds of CT lung screens": 11.70417840002666,
+        "Life-expectancy without CT lung screens": 2.3734876712397526,
+        "USPSTF eligible": 1.0
+    }
+}

@@ -1,0 +1,17 @@
+  {
+    "id": "1;1;2;2",
+    "isNational": true,
+    "patientId": "100849",
+    "color": "clRed",
+    "align": "alClient",
+    "requiredData": [
+        {
+            "id": "",
+            "locId": "240",
+            "locName": "20 MINUTE",
+            "visitDateTime": "3240327.180615",
+            "visitType": "A",
+            "visitString": "240;3240327.180615;A"
+        }
+    ]
+  }

@@ -1,0 +1,60 @@
+{
+  "APIs": [
+    {
+      "API_ID": 1,
+      "Base_URL": "https://example.com",
+      "Endpoint": "/simple",
+      "Method": "GET",
+      "Auth_Type": "Simple",
+      "Auth_Details": {}
+    },
+    {
+      "API_ID": 2,
+      "Base_URL": "https://example.com",
+      "Endpoint": "/basic-auth",
+      "Method": "GET",
+      "Auth_Type": "Basic",
+      "Auth_Details": {
+        "username": "user123",
+        "password": "password123"
+      }
+    },
+    {
+      "API_ID": 3,
+      "Base_URL": "https://example.com",
+      "Endpoint": "/oauth1",
+      "Method": "GET",
+      "Auth_Type": "OAuth1",
+      "Auth_Details": {
+        "consumer_key": "ckey123",
+        "consumer_secret": "csecret123",
+        "token": "token123",
+        "token_secret": "tsecret123"
+      }
+    },
+    {
+      "API_ID": 4,
+      "Base_URL": "https://example.com",
+      "Endpoint": "/oauth2",
+      "Method": "GET",
+      "Auth_Type": "OAuth2",
+      "Auth_Details": {
+        "client_id": "client123",
+        "client_secret": "secret123",
+        "token_url": "https://example.com/oauth/token"
+      }
+    },
+    {
+      "API_ID": 5,
+      "Base_URL": "https://www.facebook.com",
+      "Endpoint": "/v20.0/dialog/oauth",
+      "Method": "GET",
+      "Auth_Type": "OAuth2",
+      "Auth_Details": {
+        "client_id": "1735400023939338",
+        "redirect_uri": "https://www.facebook.com/connect/login_success.html",
+        "state": "12345xyz"
+      }
+    }
+  ]
+}
